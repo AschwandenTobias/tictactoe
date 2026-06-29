@@ -1,6 +1,7 @@
 import gamelogic as gl
 from engines.random_engine import RandomEngine
 from engines.perfect_player import PerfectPlayer
+from engines.neural_engine import NeuralEngine
 import time
 
 NUMBEROFRUNS = 10_000
@@ -10,12 +11,12 @@ def main():
     black_wins = 0
     draws = 0
 
-    white_player = PerfectPlayer()
-    black_player = RandomEngine()
+    white_player = NeuralEngine()
+    black_player = PerfectPlayer()
     start_time = time.time()
     while run_counter < NUMBEROFRUNS:
         current_time = time.time()
-        if run_counter % 2 == 0 and run_counter > 0:
+        if run_counter % 10 == 0 and run_counter > 0:
             print(f"Games played so far: {run_counter}, whiteWins: {white_wins}/{run_counter}, blackWins: {black_wins}/{run_counter}, draws: {draws}/{run_counter}, total_time: {(current_time - start_time):.2f}s.")
         tictactoe = gl.Game()
         winner = play_game(white_player, black_player, tictactoe)

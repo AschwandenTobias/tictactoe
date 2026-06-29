@@ -4,11 +4,12 @@ from tkinter import messagebox
 import gamelogic as gl
 from engines.random_engine import RandomEngine
 from engines.perfect_player import PerfectPlayer
+from engines.neural_engine import NeuralEngine
 
 
-# "human", RandomEngine(), or PerfectPlayer()
-white_player = PerfectPlayer()     
-black_player = "human"  
+# "human", RandomEngine(), or PerfectPlayer(), NeuralEngine()
+white_player = "human"     
+black_player = NeuralEngine()
 
 game = gl.Game()
 stop_game = False
