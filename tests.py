@@ -11,8 +11,8 @@ def main():
     black_wins = 0
     draws = 0
 
-    white_player = NeuralEngine()
-    black_player = PerfectPlayer()
+    white_player = RandomEngine()
+    black_player = NeuralEngine()
     start_time = time.time()
     while run_counter < NUMBEROFRUNS:
         current_time = time.time()

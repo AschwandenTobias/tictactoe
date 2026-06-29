@@ -51,11 +51,11 @@ def train_one_game(model, optimizer, epsilon):
 
     for board_input, move_index, player in history:
         if winner == 0:
-            reward = 0.3
-        elif winner == player:
             reward = 1
+        elif winner == player:
+            reward = 0.3
         else:
-            reward = -2
+            reward = -3
 
         x = torch.tensor(board_input, dtype=torch.float32)
 
@@ -82,7 +82,7 @@ def main():
     model = TicTacToeModel()
     optimizer = optim.Adam(model.parameters(), lr=0.001)
 
-    number_of_episodes = 1_000_000
+    number_of_episodes = 25_000
 
     white_wins = 0
     black_wins = 0
