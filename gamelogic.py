@@ -37,6 +37,15 @@ def make_move(game, move):
         game.board[row][col] = 1
     else:
         game.board[row][col] = 2
+    game.move_counter += 1
+    game.white_turn = not game.white_turn
+    return game
+
+def undo_move(game, move):
+    row, col = move
+    game.board[row][col] = 0
+    game.move_counter -= 1
+    game.white_turn = not game.white_turn
     return game
 
 def is_game_over(game):
@@ -45,6 +54,7 @@ def is_game_over(game):
     return False
 
 def somebody_won(game):
+    game.winner = 0
     board = game.board
     #print(f"Checking if somebody won")
     for row in board:

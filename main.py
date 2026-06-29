@@ -2,6 +2,7 @@ import gamelogic as gl
 
 from engines.human_engine import HumanEngine
 from engines.random_engine import RandomEngine
+from engines.perfect_player import PerfectPlayer
 
 
 def main():
@@ -22,8 +23,6 @@ def main():
             move = black_player.get_move(tictactoe)
         print(f"!Move chosen: {move}!")
         tictactoe = gl.make_move(tictactoe, move)
-        tictactoe.move_counter += 1
-        tictactoe.white_turn = not tictactoe.white_turn
 
     print("\nGame over!!!")
     if tictactoe.winner == 1:
